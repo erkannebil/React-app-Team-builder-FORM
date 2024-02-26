@@ -7,23 +7,21 @@ const LoginForm = () => {
 const onChange = (event) =>{
     let fieldName = event.target.getAttribute('state_field');
     let fieldType = event.target.getAttribute('state_field_type');
-    
-    setForm({...form , [fieldName] : event.target.value});
+ 
+    const updatedForm = {
+        ...form,
+        [fieldName]: event.target.value
+      };
+ 
+      setForm(updatedForm);
+
 }
 const onSubmit = (event)=>{
-    event.preventDefault();
-    console.log('form : ', form);
-    let result = sendData(form);
-    if(result){
-        setForm({userName: '', email: '', password: ''});
-    }
+    event.preventDefault();-
+    setForm({userName: '', email: '', password: ''});
+    console.log(form);
+    
 
-}
-
-
-const sendData = (data)=>{
-    console.log('data send successfully');
-    return true;
 }
 
     return (
