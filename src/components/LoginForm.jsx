@@ -4,24 +4,17 @@ const LoginForm = () => {
     const [form, setForm] = useState({userName: '', email: '',password:''});
     
 
-const onChange = (event) =>{
-    let fieldName = event.target.getAttribute('state_field');
-    let fieldType = event.target.getAttribute('state_field_type');
- 
-    const updatedForm = {
-        ...form,
-        [fieldName]: event.target.value
+    const onChange = (event) => {
+        debugger
+        const fieldName = event.target.getAttribute('state_field');
+        setForm({ ...form, [fieldName]: event.target.value });
       };
- 
-      setForm(updatedForm);
 
-}
+
 const onSubmit = (event)=>{
-    event.preventDefault();-
+    event.preventDefault();
     setForm({userName: '', email: '', password: ''});
     console.log(form);
-    
-
 }
 
     return (
